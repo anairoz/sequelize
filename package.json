@@ -1,0 +1,25 @@
+{
+  "name": "codegig",
+  "version": "1.0.0",
+  "description": "Simple job find app for coders",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "zoriana",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "engine": "^1.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "pg": "^7.8.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.43.0",
+    "template": "^0.17.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
