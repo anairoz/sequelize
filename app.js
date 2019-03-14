@@ -12,6 +12,13 @@ db.authenticate()//check connection
 .catch(err => console.log('Error:'+err))
 
 const app = express(); //initilize app
+
+// Handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+//Set static folder
+app.use(express.static(path.join(__dirname, 'public')))
 //index route  get request
 app.get('/', (req, res) => res.send('INDEX'));// /-index page, function get responces and send  text to browser
 
