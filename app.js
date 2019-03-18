@@ -1,6 +1,6 @@
 const express = require('express')
-const exphpd = require('express-handlebars')
-const bodyAParser = require('body-parser')
+const exphbs = require('express-handlebars')
+const bodyParser = require('body-parser')
 const path = require('path')//add all modules we added to npm
 
 //Database
@@ -17,10 +17,15 @@ const app = express(); //initilize app
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+//body Parcer
+app.use(bodyParser.urlencoded({ extended: false}));
+
 //Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
+
+
 //index route  get request
-app.get('/', (req, res) => res.send('INDEX'));// /-index page, function get responces and send  text to browser
+app.get('/', (req, res) => res.render('index', { layout: 'landing'}));// /-index page, function get responces and send  text to browser
 
 //gig routes
 app.use('/gigs', require('./routes/gigs'));//
